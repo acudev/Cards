@@ -1,0 +1,56 @@
+from Cards import *
+import time
+#High Card Low Card
+def wait():
+    time.sleep(2)
+name = input ("What is your name?: ")
+wait()
+print("Hello, ", name)
+wait()
+print("If this is running on a raspberry pi please send feedback about how this game is going")
+print("This is a game of high card low card")
+d = Deck()
+len(d.cards)
+print("if card deck is something besides 52 please report it")
+print("ace is 1 not 11 in this game")
+d.shuffle()
+while True:
+    p = d.deal_card()
+    c = d.deal_card()
+    print("Your Card Is: ", p)
+    while True:
+        player_move = input("Press 'h' for high card press 'l' for low card")
+        if player_move == 'h':
+            if p.rank == c.rank:
+                print("Tie!")
+                print("computer's card was: ", c)
+                wait()
+                break
+            elif p.rank > c.rank:
+                print("You win!")
+                print("computer's card was", c)
+                wait()
+                break
+            else:
+                print("You lose")
+                print("computer's card was", c)
+                wait()
+                break
+        if player_move == 'l':
+            if p.rank == c.rank:
+                print("Tie!")
+                print("computer's card was: ", c)
+                wait()
+                break
+            elif p.rank > c.rank:
+                print("You win!")
+                print("Computer's card was", c)
+                wait()
+                break
+            else:
+                print("You lose")
+                print("computer's card was", c)
+                wait()
+                break
+        
+        
